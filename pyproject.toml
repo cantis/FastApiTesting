@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "fastapitesting"
+version = "0.1.0"
+description = "Study of FastAPI testing with mocking."
+authors = ["Evan Young <cantis@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.111.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.9"
+pytest = "^8.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+multiline-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["S101", "ARG001", "ANN001"]
+
+[tool.pytest.ini_options]
+# -ra is for showing the output of the tests that failed
+# -q is for quiet mode
+addopts = "-ra -q"
+# this adds the application to the path for the tests
+pythonpath = ["."]
+# this sets the testpaths to the tests directory
+testpaths = ["tests"]
