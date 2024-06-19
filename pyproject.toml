@@ -3,7 +3,9 @@ name = "fastapitesting"
 version = "0.1.0"
 description = "Study of FastAPI testing with mocking."
 authors = ["Evan Young <cantis@gmail.com>"]
+license = "MIT"
 readme = "README.md"
+packages = [{ include = "*", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
